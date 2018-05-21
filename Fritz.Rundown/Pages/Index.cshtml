@@ -1,0 +1,32 @@
+﻿@page
+@model Fritz.Rundown.Pages.IndexModel
+@{ 
+	var items = Model.Repository.Get();
+}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rundown for the Stream</title>
+	<style>
+		ul { margin-left: 0px; padding-left: 0px; }
+		li { list-style-type: none; margin-left: 0px; padding-left: 0px;}
+		.fa-check-square { color: darkgreen; }
+	</style>
+	<link href="~/css/lib/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/css/lib/fontawesome-all.min.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="container">
+		<h2>Today's Stream</h2>
+		<ul>
+		@foreach (var item in items)
+		{
+			<li id="@item.ID">
+				<i class="@(!item.IsCompleted ? "far fa-square" : "fas fa-check-square")"></i>
+				<label>@item.Text</label>
+			</li>
+		}
+		</ul>
+	</div>
+</body>
+</html>

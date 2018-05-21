@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  fritz.streamtools:
+    image: fritz.streamtools
+    build:
+      context: .
+      dockerfile: Fritz.StreamTools/Dockerfile
