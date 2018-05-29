@@ -28,5 +28,41 @@
 		}
 		</ul>
 	</div>
+
+	<script src="~/lib/jquery/dist/jquery.js"></script>
+	<script type="text/javascript">
+<!--
+		$(function() { 
+			window.setInterval(function() { 
+				$.ajax({
+					method: 'GET',
+					url: '/api/items',
+					contentType: 'application/json'
+				})
+				.done(function(data) { 
+					console.log('sample data: ' + data);
+					$(data).each(function (i, v) { 
+						var item = $('#' + v.id);
+						if (item !== null) { 
+							var _i = item.find('.fas');
+							if (_i.length === 0) _i = item.find('.far');
+
+							if (_i !== null) { 
+								if (_i.hasClass('far fa-square') && v.isCompleted) { 
+									_i.removeClass('far fa-square').addClass('fas fa-check-square');
+								} else if (_i.hasClass('fas fa-check-square') && !v.isCompleted) { 
+									_i.removeClass('fas fa-check-square').addClass('far fa-square');
+							}
+							}
+						}
+					});
+				})
+				.fail(function (xhr, status, error) { 
+					console.log('failed to get data');
+				});
+			}, 3000);
+		});
+-->
+	</script>
 </body>
 </html>

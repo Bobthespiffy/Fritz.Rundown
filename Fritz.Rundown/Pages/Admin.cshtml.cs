@@ -6,7 +6,7 @@ using Fritz.Rundown.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Fritz.RUndown.Pages
+namespace Fritz.Rundown.Pages
 {
 	public class AdminModel : PageModel
 	{
